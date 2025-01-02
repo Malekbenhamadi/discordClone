@@ -21,19 +21,20 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Table(name = "users")
 @Entity
-public class User implements Serializable{
+public class User implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, length = 10)
+    @Column(nullable = false,unique=true)
+    private String email;
+    @Column(nullable = false,unique=true)
     private String username;
-    @Column(nullable = false, length = 15)
+    @Column(nullable = false)
     private String password;
 
     private String status; // "online", "offline", etc.
-
 
     @Temporal(TemporalType.TIMESTAMP)
     private Date createdAt;
