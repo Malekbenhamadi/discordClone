@@ -35,4 +35,9 @@ public class TextChannelService {
     public void deleteById(Long id) {
         textChannelRepository.deleteById(id);
     }
+
+    public List<TextChannel> getTextChannelsByServerId(Long id) {
+
+        return textChannelRepository.getTextChannelsByServerId(id);
+    }
 }

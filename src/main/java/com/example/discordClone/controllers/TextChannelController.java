@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @RestController
 @RequestMapping("/text-channels")
@@ -34,4 +37,10 @@ public class TextChannelController {
     public void deleteById(@PathVariable Long id) {
         textChannelService.deleteById(id);
     }
+
+    @GetMapping("/server/{id}")
+    public List<TextChannel> getTextChannelsByServerId(@PathVariable Long id) {
+        return textChannelService.getTextChannelsByServerId(id);
+    }
+    
 }

@@ -18,6 +18,7 @@ public class MessageService {
 
     @Autowired
     private MessageRepository messageRepository;
+
     
 
     public synchronized List<Message> findAll() {
@@ -34,5 +35,9 @@ public class MessageService {
 
     public void deleteById(Long id) {
         messageRepository.deleteById(id);
+    }
+
+    public List<Message> getMessagesByChannelId(Long id) {
+        return messageRepository.getMessagesByChannelId(id);
     }
 }

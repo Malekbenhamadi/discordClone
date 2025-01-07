@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+
 @RestController
 @RequestMapping("/messages")
 public class MessageController {
@@ -34,4 +35,10 @@ public class MessageController {
     public void deleteById(@PathVariable Long id) {
         messageService.deleteById(id);
     }
+
+    @GetMapping("/text-channel/{textChannelId}")
+    public List<Message> getMessagesByTextChannel(@PathVariable Long textChannelId) {
+        return messageService.getMessagesByChannelId(textChannelId);
+    }
+    
 }
